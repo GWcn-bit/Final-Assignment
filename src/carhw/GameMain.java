@@ -82,7 +82,7 @@ public class GameMain extends PApplet {
 
             // Name entry
             text("Enter Your Name:", 50, 100);
-            text(playerName + (frameCount % 60 < 30 ? "_" : ""), 300, 100);
+            text(playerName + " ", 200, 100);
 
             // Speed entry
             text("Enter Dragon Speed:", 50, 140);
@@ -109,9 +109,9 @@ public class GameMain extends PApplet {
         if (gameState.isGameOver()) {
             fill(255, 0, 0);
             textSize(32);
-            text("Game Over", width / 2 - 80, height / 2);
+            text("Game Over", 240, 200);
             textSize(16);
-            text("Press ENTER to restart", width / 2 - 100, height / 2 + 40);
+            text("Press ENTER to restart", 240, 240);
 
             // Update highscores once on game over
             if (!highScoresUpdated) {
@@ -125,9 +125,9 @@ public class GameMain extends PApplet {
         if (gameState.isGameWon()) {
             fill(0, 255, 0);
             textSize(32);
-            text("Mission Complete!", width / 2 - 100, height / 2);
+            text("Mission Complete!", 240, 200);
             textSize(16);
-            text("Press ENTER to restart", width / 2 - 100, height / 2 + 40);
+            text("Press ENTER to restart", 240, 240);
 
             // Update highscores once on win
             if (!highScoresUpdated) {
