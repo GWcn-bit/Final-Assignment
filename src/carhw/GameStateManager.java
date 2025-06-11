@@ -78,4 +78,7 @@ public class GameStateManager {
     public int getHealth() {
         return health;
     }
+    public void showStatus() {
+    System.out.println("Score: " + score + ", Health: " + health);
+}
 }
