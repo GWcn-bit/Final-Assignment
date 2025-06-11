@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 /**
  *
  * @author 16478
@@ -201,7 +202,7 @@ public class GameMain extends PApplet {
             return;
         }
 
-        // ⬇️ After game over or victory, press ENTER to restart
+        //️ After game over or victory, press ENTER to restart
         if (gameState.isGameOver() || gameState.isGameWon()) {
             if (key == ENTER || key == RETURN) {
                 resetGame();
@@ -234,6 +235,18 @@ public class GameMain extends PApplet {
     // Handle player speed input
     private void handleSpeedInput() {
         if (key == ENTER || key == RETURN) {
+             try { //error check
+            int v = Integer.parseInt(speedInputs[currentInput]);
+            if (v <= 0) {
+                JOptionPane.showMessageDialog(null,
+                    "Please enter a positive integer for speed.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null,
+                "Invalid input! Only numbers are allowed.");
+            return;
+        }
             currentInput++;
             if (currentInput >= speedInputs.length) {
                 dragonSpeed = Integer.parseInt(speedInputs[0]);
@@ -278,8 +291,7 @@ public class GameMain extends PApplet {
     // Check if key is numeric
     private boolean isNumericKey(char k) {
         return k >= '0' && k <= '9';
-    }
-
+    } 
     // Draw high-score table (2D array)
     private void drawScores() {
         fill(0);
