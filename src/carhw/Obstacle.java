@@ -52,7 +52,7 @@ public class Obstacle extends GameObject {
         setX(getX() + dx);
         setY(getY() + dy);
 
-        // Reverse x-direction if hitting left or right boundary
+        // Reverse x-direction if hitting left or right boundary (from chatgpt)
         if (getX() <= 0 || getX() >= getApp().width - getSize()) {
             dx *= -1;
         }

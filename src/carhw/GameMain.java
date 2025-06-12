@@ -52,6 +52,8 @@ public class GameMain extends PApplet {
     private String[][] highScores = new String[5][2];
     private static final String HS_FILE = "highscores.txt";
     private boolean highScoresUpdated = false;
+    
+    
 
     public static void main(String[] args) {
         PApplet.main("carhw.GameMain");
@@ -80,6 +82,9 @@ public class GameMain extends PApplet {
         if (stage == 0) {
             fill(0);
             drawScores(); // Show high-score table only on main screen
+            
+            text("Rules: Touch the dragon 10 times to win, avoid the flames!", 50, 240);
+            text("The game fails when the life value is 0.",            50, 270);
 
             // Name entry
             text("Enter Your Name:", 50, 100);
